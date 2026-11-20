@@ -1,0 +1,18 @@
+exp_compare report  2026-10-31 16:55:28
+torch 2.13.0+cpu, device available: cuda=False
+loading data ...
+samples: 512
+loading enhance (Noagg) model ...
+loading agg model ...
+
+===== batch_num = 32 (warmup 1 batch + 3 timed batches) =====
+model                                   ms/sample  ms/batch   ratio    Ch_NMSE     N_NMSE
+-----------------------------------------------------------------------------------------
+enhance (Noagg, tau=0)                      50.80    1625.6   1.000   0.004812     0.7252   speedup  1.00x
+agg (tau=2, 0.7/0.7, single-sync)           11.11     355.7   0.268   0.004137      0.695   speedup  4.57x
+
+===== batch_num = 128 (warmup 1 batch + 3 timed batches) =====
+model                                   ms/sample  ms/batch   ratio    Ch_NMSE     N_NMSE
+-----------------------------------------------------------------------------------------
+enhance (Noagg, tau=0)                      56.56    7239.3   1.000   0.004845     0.7262   speedup  1.00x
+agg (tau=2, 0.7/0.7, single-sync)           14.57    1864.6   0.267   0.004175     0.6966   speedup  3.88x
